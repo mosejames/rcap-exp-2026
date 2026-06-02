@@ -231,7 +231,7 @@
   }
   .mailframe-meta .subj b{color:var(--ink);font-weight:500;}
   .mailframe iframe{
-    display:block;width:100%;height:620px;border:0;background:#faf4ea;
+    display:block;width:100%;height:600px;border:0;background:#faf4ea;overflow:hidden;
   }
   .preview-foot{text-align:center;margin:20px 0 0;}
   .preview-hint{
@@ -364,12 +364,12 @@
         <div class="subj"><b>RCAP: What to EXPECT at EXP</b></div>
       </div>
     </div>
-    <iframe src="email.html" title="Live preview of the RCAP EXP newsletter email" loading="lazy" scrolling="yes"></iframe>
+    <iframe id="emailFrame" src="email.html" title="Live preview of the RCAP EXP newsletter email" scrolling="no"></iframe>
   </div>
 
   <div class="preview-foot">
-    <p class="preview-hint">Scroll inside the frame to see the whole email</p>
-    <a class="btn btn-outline" href="email.html" target="_blank" rel="noopener" style="display:inline-flex;width:auto;">Open full-size preview ↗</a>
+    <p class="preview-hint">The full email, exactly as it sends</p>
+    <a class="btn btn-outline" href="email.html" target="_blank" rel="noopener" style="display:inline-flex;width:auto;">Open in its own tab ↗</a>
   </div>
 
 </main>
@@ -474,6 +474,27 @@
       }
     });
   });
+
+  // Auto-size the email preview iframe to its full content (no inner scroll)
+  var frame = document.getElementById('emailFrame');
+  function fitFrame(){
+    try{
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      if(!doc || !doc.body) return;
+      var h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+      if(h > 0) frame.style.height = h + 'px';
+    }catch(e){/* ignore */}
+  }
+  if(frame){
+    frame.addEventListener('load', function(){
+      fitFrame();
+      // images finish decoding after load; re-measure a few times
+      [120, 400, 900, 1800].forEach(function(ms){ setTimeout(fitFrame, ms); });
+    });
+    var rt;
+    window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(fitFrame, 150); });
+    if(frame.contentDocument && frame.contentDocument.readyState === 'complete'){ fitFrame(); }
+  }
 
   // Subject line copy
   var subjCopy = document.getElementById('subjCopy');
