@@ -43,6 +43,16 @@
     padding:42px 24px 120px;
   }
   .header-inner{max-width:920px;margin:0 auto;}
+  .header-top{display:flex;justify-content:flex-end;margin:0 0 22px;}
+  .view-browser{
+    font-family:var(--cond);font-weight:500;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);text-decoration:none;
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid rgba(198,161,74,.55);border-radius:999px;padding:9px 17px;
+    transition:background .15s ease,color .15s ease,border-color .15s ease;
+  }
+  .view-browser:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
+  .view-browser .ic{width:15px;height:15px;}
   .logo{
     display:inline-block;text-align:left;color:#fff;line-height:1;
     border:0;margin:0 0 26px;
@@ -184,6 +194,51 @@
   }
   .pagefoot a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid #d8c89c;}
 
+  /* ---------- email preview ---------- */
+  .break{display:flex;align-items:center;gap:18px;margin:54px 0 30px;}
+  .break::before,.break::after{content:"";height:1px;background:var(--line);flex:1;}
+  .break span{
+    font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--gold-deep);white-space:nowrap;
+  }
+  .preview-head{text-align:center;margin:0 0 22px;}
+  .preview-head h2{
+    font-family:var(--cond);font-weight:700;font-size:clamp(26px,4.5vw,36px);
+    letter-spacing:.01em;text-transform:uppercase;color:var(--navy);margin:0 0 8px;line-height:1;
+  }
+  .preview-head p{font-size:16px;color:var(--ink-soft);margin:0;}
+  .mailframe{
+    max-width:700px;margin:0 auto;background:#fff;border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(28,43,79,.16);
+  }
+  .mailframe-bar{
+    background:#fff;border-bottom:1px solid var(--line);padding:14px 18px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .mailframe-bar .dots{display:flex;gap:6px;flex:0 0 auto;}
+  .mailframe-bar .dots i{width:11px;height:11px;border-radius:50%;display:block;}
+  .mailframe-bar .dots i:nth-child(1){background:#e6655a;}
+  .mailframe-bar .dots i:nth-child(2){background:#e7b13e;}
+  .mailframe-bar .dots i:nth-child(3){background:#54b25a;}
+  .mailframe-meta{min-width:0;line-height:1.35;}
+  .mailframe-meta .from{
+    font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--navy);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mailframe-meta .subj{
+    font-size:13.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mailframe-meta .subj b{color:var(--ink);font-weight:500;}
+  .mailframe iframe{
+    display:block;width:100%;height:620px;border:0;background:#faf4ea;
+  }
+  .preview-foot{text-align:center;margin:20px 0 0;}
+  .preview-hint{
+    font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:#8c8161;margin:0 0 16px;
+  }
+
   /* ---------- toast ---------- */
   .toast{
     position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
@@ -211,6 +266,12 @@
 <!-- HEADER -->
 <header class="header">
   <div class="header-inner">
+    <div class="header-top">
+      <a class="view-browser" href="index.html" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        View original email in browser ↗
+      </a>
+    </div>
     <div class="logo">
       <span class="the">The</span>
       <span class="name">Ron Clark</span>
@@ -285,6 +346,30 @@
     <p class="ek">A couple of notes</p>
     <p style="margin:0 0 10px;"><b>On your phone or in Outlook?</b> The paste still works the same way: new message, tap in the body, paste. If any client strips the layout, share this link instead so folks can view the full version in a browser: <a href="https://mosejames.github.io/rcap-exp-2026/" target="_blank" rel="noopener">mosejames.github.io/rcap-exp-2026</a>.</p>
     <p style="margin:0;"><b>Images not showing after paste?</b> Some inboxes hide remote images until you click "Display images" or "Load images." That's on the reader's side, not the copy. The photos are hosted online, so once images are allowed, they appear.</p>
+  </div>
+
+  <!-- LINE BREAK + LIVE EMAIL PREVIEW -->
+  <div class="break"><span>The email itself</span></div>
+
+  <div class="preview-head">
+    <h2>What lands in their inbox</h2>
+    <p>A live look at the exact email you're about to copy and send.</p>
+  </div>
+
+  <div class="mailframe">
+    <div class="mailframe-bar">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="mailframe-meta">
+        <div class="from">Ron Clark Academy Parents</div>
+        <div class="subj"><b>RCAP: What to EXPECT at EXP</b></div>
+      </div>
+    </div>
+    <iframe src="email.html" title="Live preview of the RCAP EXP newsletter email" loading="lazy" scrolling="yes"></iframe>
+  </div>
+
+  <div class="preview-foot">
+    <p class="preview-hint">Scroll inside the frame to see the whole email</p>
+    <a class="btn btn-outline" href="email.html" target="_blank" rel="noopener" style="display:inline-flex;width:auto;">Open full-size preview ↗</a>
   </div>
 
 </main>
