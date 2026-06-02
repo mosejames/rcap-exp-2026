@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RCAP Newsletter — Sender's Kit</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,18,400;0,18,500;1,18,400;1,18,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#1c2b4f;
+    --navy-deep:#152038;
+    --gold:#c6a14a;
+    --gold-deep:#a9842f;
+    --cream:#f3ebd7;
+    --cream-2:#ece2c9;
+    --ink:#22304e;
+    --ink-soft:#5d6680;
+    --line:#e2d7bb;
+    --white:#ffffff;
+    --serif:'Newsreader',Georgia,serif;
+    --cond:'Oswald','Arial Narrow',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .topbar{height:4px;background:var(--gold);}
+  .cond{font-family:var(--cond);}
+
+  /* ---------- Header ---------- */
+  .header{
+    background:var(--navy);
+    color:#fff;
+    padding:42px 24px 120px;
+  }
+  .header-inner{max-width:920px;margin:0 auto;}
+  .logo{
+    display:inline-block;text-align:left;color:#fff;line-height:1;
+    border:0;margin:0 0 26px;
+  }
+  .logo .the{
+    font-family:var(--cond);font-weight:500;font-size:11px;letter-spacing:.42em;
+    text-transform:uppercase;color:#fff;display:block;margin-bottom:4px;padding-left:3px;
+  }
+  .logo .name{
+    font-family:var(--cond);font-weight:700;font-size:30px;letter-spacing:.02em;
+    text-transform:uppercase;display:block;line-height:.96;
+  }
+  .kicker{
+    font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 10px;
+  }
+  .header h1{
+    font-family:var(--cond);font-weight:700;text-transform:uppercase;
+    font-size:clamp(40px,8vw,68px);line-height:.96;letter-spacing:.005em;
+    margin:0 0 18px;color:#fff;
+  }
+  .header .sub{
+    font-family:var(--serif);font-size:clamp(17px,2.2vw,20px);line-height:1.5;
+    color:#c9d2e6;max-width:46ch;margin:0;
+  }
+
+  /* ---------- Layout ---------- */
+  .stage{max-width:920px;margin:-90px auto 0;padding:0 24px 80px;}
+
+  .card{
+    background:var(--white);border-radius:18px;
+    box-shadow:0 24px 60px rgba(28,43,79,.16);
+    padding:34px 36px;margin-bottom:26px;
+  }
+  .step-label{
+    font-family:var(--cond);font-weight:600;font-size:20px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--navy);margin:0 0 8px;
+  }
+  .step-desc{font-size:16px;color:var(--ink-soft);margin:0 0 22px;max-width:60ch;}
+
+  /* ---------- Buttons ---------- */
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn{
+    font-family:var(--cond);font-weight:600;font-size:16px;letter-spacing:.06em;
+    text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 26px;border-radius:10px;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 8px 20px rgba(198,161,74,.35);}
+  .btn-gold:hover{background:#d2af5b;}
+  .btn-gold.copied{background:#2f7d4f;color:#fff;box-shadow:0 8px 20px rgba(47,125,79,.3);}
+  .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn .ic{width:18px;height:18px;display:inline-block;vertical-align:middle;}
+
+  /* ---------- Subject line ---------- */
+  .divider{height:1px;background:var(--line);margin:26px 0;}
+  .subj-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px;}
+  .subj-k{
+    font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold-deep);white-space:nowrap;
+  }
+  .subj-field{
+    flex:1 1 280px;display:flex;align-items:center;gap:10px;
+    background:#faf6ec;border:1px solid var(--line);border-radius:10px;
+    padding:4px 4px 4px 16px;
+  }
+  .subj-field input{
+    flex:1;border:0;background:transparent;outline:none;
+    font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink);
+    padding:9px 0;min-width:0;
+  }
+  .mini-copy{
+    font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--navy);background:#fff;border:1px solid var(--line);
+    border-radius:7px;padding:9px 14px;cursor:pointer;white-space:nowrap;transition:background .15s ease,color .15s ease;
+  }
+  .mini-copy:hover{background:var(--navy);color:#fff;}
+  .mini-copy.copied{background:#2f7d4f;color:#fff;border-color:#2f7d4f;}
+
+  /* ---------- Callout ---------- */
+  .callout{
+    background:#f7eed6;border-left:5px solid var(--gold);border-radius:10px;
+    padding:18px 22px;margin:0 0 26px;font-size:15.5px;line-height:1.55;color:#4a3f24;
+    display:flex;gap:14px;
+  }
+  .callout .bang{
+    font-family:var(--cond);font-weight:700;color:var(--gold-deep);font-size:22px;line-height:1;flex:0 0 auto;
+  }
+  .callout b{color:#3a3119;}
+
+  /* ---------- Step 2 ---------- */
+  .step2-head{margin:6px 0 6px;}
+  .step2-head .step-label{font-size:24px;}
+  .step2-intro{font-size:16px;color:var(--ink-soft);max-width:62ch;margin:0 0 24px;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .mailcard{background:var(--white);border-radius:16px;box-shadow:0 14px 40px rgba(28,43,79,.1);padding:26px 28px;}
+  .mailcard h3{
+    font-family:var(--cond);font-weight:600;font-size:19px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--navy);margin:0 0 18px;display:flex;align-items:center;gap:10px;
+  }
+  .badge{
+    font-family:var(--cond);font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;
+  }
+  .badge-web{background:#e4ecfb;color:#2c5bd1;}
+  .badge-best{background:#e1f0e6;color:#2f7d4f;}
+  ol.steps{list-style:none;margin:0;padding:0;counter-reset:s;}
+  ol.steps li{
+    counter-increment:s;position:relative;padding:0 0 16px 42px;font-size:16px;color:var(--ink);line-height:1.5;
+  }
+  ol.steps li:last-child{padding-bottom:0;}
+  ol.steps li::before{
+    content:counter(s);position:absolute;left:0;top:-1px;
+    width:27px;height:27px;border-radius:50%;background:var(--navy);color:var(--gold);
+    font-family:var(--cond);font-weight:600;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.steps li b{font-weight:600;color:var(--navy);}
+  kbd{
+    font-family:var(--cond);font-weight:500;font-size:13px;background:#f0e8d6;border:1px solid var(--line);
+    border-bottom-width:2px;border-radius:5px;padding:1px 7px;color:#3a3119;white-space:nowrap;
+  }
+
+  /* ---------- Foot note ---------- */
+  .endnote{
+    margin-top:26px;background:var(--cream-2);border:1px dashed #cdbf99;border-radius:14px;
+    padding:22px 26px;font-size:15px;color:#4a3f24;line-height:1.6;
+  }
+  .endnote .ek{
+    font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-deep);margin:0 0 8px;
+  }
+  .endnote a{color:var(--navy);font-weight:500;}
+  .pagefoot{
+    text-align:center;padding:30px 24px 50px;color:#8c8161;font-size:13px;font-family:var(--cond);
+    letter-spacing:.08em;text-transform:uppercase;
+  }
+  .pagefoot a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid #d8c89c;}
+
+  /* ---------- toast ---------- */
+  .toast{
+    position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+    background:var(--navy-deep);color:#fff;padding:14px 22px;border-radius:12px;
+    font-family:var(--cond);font-weight:500;letter-spacing:.04em;font-size:15px;
+    box-shadow:0 16px 40px rgba(0,0,0,.3);opacity:0;pointer-events:none;
+    transition:opacity .25s ease,transform .25s ease;z-index:1000;display:flex;align-items:center;gap:10px;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .toast.err{background:#8a2b2b;}
+
+  @media (max-width:680px){
+    .header{padding:34px 20px 110px;}
+    .stage{padding:0 16px 60px;}
+    .card{padding:26px 22px;}
+    .cols{grid-template-columns:1fr;}
+    .btn{width:100%;justify-content:center;}
+    .btn-row{flex-direction:column;align-items:stretch;}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="the">The</span>
+      <span class="name">Ron Clark</span>
+      <span class="name">Academy</span>
+    </div>
+    <p class="kicker">Ron Clark Academy Parents &middot; Sender's Kit</p>
+    <h1>Send the Newsletter</h1>
+    <p class="sub">Everything you need to drop this email into your inbox and send it out, looking freshly composed and never forwarded.</p>
+  </div>
+</header>
+
+<main class="stage">
+
+  <!-- STEP 1 -->
+  <section class="card" aria-labelledby="s1">
+    <h2 class="step-label" id="s1">Step 1 — Copy the newsletter</h2>
+    <p class="step-desc">One click grabs the whole thing (design, photos, logos, and the volunteer button) onto your clipboard.</p>
+    <div class="btn-row">
+      <button class="btn btn-gold" id="copyBtn" type="button">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span id="copyBtnLabel">Copy newsletter</span>
+      </button>
+      <a class="btn btn-outline" href="email.html" target="_blank" rel="noopener">Open full-size preview ↗</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="subj-row">
+      <span class="subj-k">Suggested subject line</span>
+      <div class="subj-field">
+        <input id="subj" type="text" value="RCAP: What to EXPECT at EXP" aria-label="Suggested subject line" />
+        <button class="mini-copy" id="subjCopy" type="button">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARNING -->
+  <div class="callout">
+    <span class="bang">!</span>
+    <div><b>Paste into a brand-new email, do not hit "Forward."</b> Forwarding adds "Fwd:" and quoted clutter. Open a fresh compose window, paste, add the recipients, and send. It'll look like you wrote it yourself.</div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step2-head">
+    <h2 class="step-label">Step 2 — Paste &amp; send</h2>
+  </div>
+  <p class="step2-intro">After clicking <b>Copy newsletter</b> above, follow the steps for whichever email you use. Everyone gets the same result.</p>
+
+  <div class="cols">
+    <div class="mailcard">
+      <h3>Gmail <span class="badge badge-web">Web</span></h3>
+      <ol class="steps">
+        <li>Click <b>Compose</b>.</li>
+        <li>Click inside the message body.</li>
+        <li>Paste — <kbd>⌘ V</kbd> (Mac) or <kbd>Ctrl V</kbd> (Windows).</li>
+        <li>Add your subject and recipients, then hit <b>Send</b>.</li>
+      </ol>
+    </div>
+    <div class="mailcard">
+      <h3>Apple Mail <span class="badge badge-best">Looks best</span></h3>
+      <ol class="steps">
+        <li>Click the <b>pencil</b> (New Message).</li>
+        <li>Click in the body area.</li>
+        <li>Paste — <kbd>⌘ V</kbd>.</li>
+        <li>Add your subject and recipients, then hit <b>Send</b>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ENDNOTE -->
+  <div class="endnote">
+    <p class="ek">A couple of notes</p>
+    <p style="margin:0 0 10px;"><b>On your phone or in Outlook?</b> The paste still works the same way: new message, tap in the body, paste. If any client strips the layout, share this link instead so folks can view the full version in a browser: <a href="https://mosejames.github.io/rcap-exp-2026/" target="_blank" rel="noopener">mosejames.github.io/rcap-exp-2026</a>.</p>
+    <p style="margin:0;"><b>Images not showing after paste?</b> Some inboxes hide remote images until you click "Display images" or "Load images." That's on the reader's side, not the copy. The photos are hosted online, so once images are allowed, they appear.</p>
+  </div>
+
+</main>
+
+<div class="pagefoot">
+  Ron Clark Academy Parents &nbsp;&middot;&nbsp; <a href="https://mosejames.github.io/rcap-exp-2026/" target="_blank" rel="noopener">View the live newsletter</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var EMAIL_HTML = null, EMAIL_TEXT = null, loadFailed = false;
+
+  function buildPlainText(doc){
+    try{
+      var root = doc.getElementById('email-root');
+      var t = (root ? root.textContent : '').replace(/[ \t]+/g,' ').replace(/\n\s*\n\s*\n+/g,'\n\n').trim();
+      return t || 'RCAP — What to EXPECT at EXP';
+    }catch(e){ return 'RCAP — What to EXPECT at EXP'; }
+  }
+
+  function loadEmail(){
+    return fetch('email.html', {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('fetch'); return r.text(); })
+      .then(function(txt){
+        var doc = new DOMParser().parseFromString(txt, 'text/html');
+        var node = doc.getElementById('email-root');
+        if(!node) throw new Error('no root');
+        EMAIL_HTML = node.outerHTML;
+        EMAIL_TEXT = buildPlainText(doc);
+        loadFailed = false;
+      })
+      .catch(function(){ loadFailed = true; });
+  }
+  loadEmail();
+
+  function toast(msg, isErr){
+    var el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'toast show' + (isErr ? ' err' : '');
+    clearTimeout(el._t);
+    el._t = setTimeout(function(){ el.className = 'toast' + (isErr ? ' err' : ''); }, 2600);
+  }
+
+  function legacyCopyHTML(html){
+    var div = document.createElement('div');
+    div.contentEditable = 'true';
+    div.innerHTML = html;
+    div.style.position = 'fixed';
+    div.style.left = '-99999px';
+    div.style.top = '0';
+    div.style.whiteSpace = 'normal';
+    document.body.appendChild(div);
+    var range = document.createRange();
+    range.selectNodeContents(div);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try{ ok = document.execCommand('copy'); }catch(e){ ok = false; }
+    sel.removeAllRanges();
+    document.body.removeChild(div);
+    return ok;
+  }
+
+  function flashBtn(btn, labelEl, doneText, restoreText){
+    btn.classList.add('copied');
+    if(labelEl) labelEl.textContent = doneText;
+    setTimeout(function(){
+      btn.classList.remove('copied');
+      if(labelEl) labelEl.textContent = restoreText;
+    }, 2200);
+  }
+
+  var copyBtn = document.getElementById('copyBtn');
+  var copyBtnLabel = document.getElementById('copyBtnLabel');
+
+  copyBtn.addEventListener('click', function(){
+    var go = Promise.resolve();
+    if(!EMAIL_HTML && !loadFailed){ go = loadEmail(); }
+    else if(loadFailed){ go = loadEmail(); }
+    go.then(function(){
+      if(!EMAIL_HTML){
+        toast('Could not load the newsletter. Open this page from the live link, then try again.', true);
+        return;
+      }
+      var html = EMAIL_HTML, text = EMAIL_TEXT || '';
+      function success(){ flashBtn(copyBtn, copyBtnLabel, 'Copied to clipboard', 'Copy newsletter'); toast('Newsletter copied. Now open a new email and paste.'); }
+      if(navigator.clipboard && window.ClipboardItem){
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], {type:'text/html'}),
+          'text/plain': new Blob([text], {type:'text/plain'})
+        });
+        navigator.clipboard.write([item]).then(success).catch(function(){
+          if(legacyCopyHTML(html)) success();
+          else toast('Copy was blocked by the browser. Try again, or use the full-size preview.', true);
+        });
+      } else {
+        if(legacyCopyHTML(html)) success();
+        else toast('This browser blocked the copy. Try Chrome or Safari.', true);
+      }
+    });
+  });
+
+  // Subject line copy
+  var subjCopy = document.getElementById('subjCopy');
+  var subj = document.getElementById('subj');
+  subjCopy.addEventListener('click', function(){
+    var val = subj.value || '';
+    function done(){ subjCopy.classList.add('copied'); subjCopy.textContent='Copied'; setTimeout(function(){ subjCopy.classList.remove('copied'); subjCopy.textContent='Copy'; },1800); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(val).then(done).catch(function(){ subj.select(); document.execCommand('copy'); done(); });
+    } else { subj.select(); try{document.execCommand('copy');}catch(e){} done(); }
+  });
+})();
+</script>
+</body>
+</html>
